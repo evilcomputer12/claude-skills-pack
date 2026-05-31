@@ -1,0 +1,5 @@
+# temp clone dirs (script uses the system temp dir, but just in case)
+claude-skills-pack-*/
+*.zip
+.DS_Store
+Thumbs.db
