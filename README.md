@@ -7,7 +7,7 @@ It fetches each upstream source and installs:
 - **skills** → `~/.claude/skills/` (each is a folder containing a `SKILL.md`)
 - **subagents** → `~/.claude/agents/` (each is a Markdown file with `name`/`description` front-matter)
 
-Total: **~185 skills** and **~153 subagents** across the sources below.
+Total: **~186 skills** and **~153 subagents** across the sources below.
 
 ---
 
@@ -52,6 +52,7 @@ Then **restart Claude Code** to load everything.
 | [`nextlevelbuilder/ui-ux-pro-max-skill`](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | skills | 7 | UI/UX & design (`banner-design`, `brand`, `design`, `design-system`, `slides`, `ui-styling`, `ui-ux-pro-max`). |
 | [`netresearch/file-search-skill`](https://github.com/netresearch/file-search-skill) | skills | 1 | Fast codebase search (ripgrep / ast-grep / fd / rga / tokei / scc). |
 | **`perplexity-search`** (bundled in `bundled/`) | skill | 1 | AI web search via Perplexity through OpenRouter. No upstream repo — shipped here directly. |
+| **`electrical-engineering`** (bundled in `bundled/`) | skill | 1 | EE/electronics assistant: circuit analysis, component selection, power/PCB/SPICE references + a dependency-free `ee_calc.py` (Ohm, dividers, RC/LC, LED, IPC-2221 trace width, 555, E-series…). Authored for this pack. |
 | [`VoltAgent/awesome-claude-code-subagents`](https://github.com/VoltAgent/awesome-claude-code-subagents) | agents | ~153 | Subagents across core-dev, language specialists, infrastructure, **cybersec**, **sysadmin**, **mobile**, data/AI, and more. |
 
 ---
