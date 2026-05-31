@@ -51,14 +51,25 @@ def fmt(value, unit=''):
 
 
 def nearest_eseries(value, series):
-    """Snap a positive value to the nearest preferred value in an E-series."""
-    base = E_SERIES[series]
+    """Snap a positive value to the nearest preferred value in an E-series.
+
+    Tables are stored in different ranges (E24 as 10..91, E96 as 1.0..9.77),
+    so normalize every base value into [1, 10) before comparing.
+    """
     if value <= 0:
         return value
+    norm_base = []
+    for b in E_SERIES[series]:
+        x = float(b)
+        while x >= 10:
+            x /= 10
+        while x < 1:
+            x *= 10
+        norm_base.append(x)
+    norm_base = sorted(set(norm_base)) + [10.0]
     decade = 10 ** math.floor(math.log10(value))
-    norm = value / decade                      # in [1, 10)
-    base_norm = [b / 10.0 for b in base] + [10.0]   # base stored as 10..91 -> 1.0..9.1
-    best = min(base_norm, key=lambda b: abs(b - norm))
+    norm = value / decade                       # in [1, 10)
+    best = min(norm_base, key=lambda b: abs(b - norm))
     return best * decade
 
 
